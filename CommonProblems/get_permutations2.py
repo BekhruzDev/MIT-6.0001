@@ -1,6 +1,8 @@
 
 def get_permutations2(sequence):
     '''
+    This problem is a shorter version of get_permutations1.py
+    
     sequence: string of characters
     
     Returns list of reorderings of the string
@@ -16,9 +18,11 @@ def get_permutations2(sequence):
         return [sequence]
     else: 
         result_list = []
-        for perms in get_permutations2(sequence[1:]):
+        for perm in get_permutations2(sequence[1:]):
             for i in range(len(sequence)):
-                result_list.append(''.join(perms[:i] + sequence[0] + perms[i:]))
+                result_list.append(''.join(perm[:i] + sequence[0] + perm[i:]))
         return result_list
+    
+#Test
 print(get_permutations2('abc'))
     
