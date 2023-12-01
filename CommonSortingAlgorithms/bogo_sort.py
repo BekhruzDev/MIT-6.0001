@@ -10,12 +10,9 @@ def bogo_sort(list):
     # see if it is sorted
     import random
 
-    shuffle = True
-    while shuffle:
+    while not is_sorted(list):
         print("List:", list)
-        shuffle = not is_sorted(list)
-        if shuffle:
-            random.shuffle(list)
+        random.shuffle(list)
     print("Sorted List:", list)
     
 def is_sorted(list):
