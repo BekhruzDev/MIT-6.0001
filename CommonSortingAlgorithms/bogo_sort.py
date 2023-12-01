@@ -28,6 +28,7 @@ def is_sorted(list):
 
 #TEST            
 list_sample = [2,6,8,1,6,4,32]
+print("List size:", len(list_sample))
 print(bogo_sort(list_sample))
     
         
