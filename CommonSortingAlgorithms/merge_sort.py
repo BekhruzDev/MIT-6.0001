@@ -13,8 +13,10 @@ def merge_sort(list):
         return list
     if len(list) > 1:
         middle = len(list) // 2
+        #Divide
         left_list =  merge_sort(list[:middle])
         right_list = merge_sort(list[middle:])
+        #Conquer with merging 2 sublists
         return merge_lists(left_list, right_list)
     
     
