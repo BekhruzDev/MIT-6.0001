@@ -90,7 +90,7 @@ except ImportError:
     base64 = binascii = None
 else:
     # Python 3.1 deprecates decodestring in favor of decodebytes
-    _base64decode = getattr(base64, 'decodebytes', base64.decodestring)
+    _base64decode = getattr(base64, 'decodebytes', base64.decodebytes)
 
 # _s2bytes: convert a UTF-8 str to bytes if the interpreter is Python 3
 # _l2bytes: convert a list of ints to bytes if the interpreter is Python 3
@@ -134,18 +134,16 @@ import cgi
 import codecs
 import copy
 import datetime
-import itertools
 import re
 import struct
 import time
-import types
 import urllib.request, urllib.parse, urllib.error
 import urllib.request, urllib.error, urllib.parse
 import urllib.parse
 import warnings
 
-from html.entities import name2codepoint, codepoint2name, entitydefs
-import collections
+from html.entities import name2codepoint, entitydefs
+import collections.abc
 
 try:
     from io import BytesIO as _StringIO
@@ -3652,7 +3650,7 @@ def convert_to_utf8(http_headers, data):
     # try: HTTP encoding, declared XML encoding, encoding sniffed from BOM
     for proposed_encoding in (rfc3023_encoding, xml_encoding, bom_encoding,
                               lazy_chardet_encoding, 'utf-8', 'windows-1252', 'iso-8859-2'):
-        if isinstance(proposed_encoding, collections.Callable):
+        if isinstance(proposed_encoding, collections.abc.Callable):
             proposed_encoding = proposed_encoding()
         if not proposed_encoding:
             continue
