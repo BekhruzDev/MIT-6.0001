@@ -17,7 +17,7 @@ def fibonacci2(n):
     first = 0
     second = 1
     # Loop through range(n-1) not n. Because, for n >= 2, ith fibonacci actually outputs the value of (i+1)th fibonacci
-    for i in range(n - 1):
+    for _ in range(n - 1):
         temp = first
         first = second
         second = temp + first

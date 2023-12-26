@@ -1,5 +1,5 @@
 
-def bisection_search2(list, e):
+def bisection_search2(list, x):
     '''
     Assume that list is sorted. 
     Uses bisection search method to search for the element in the list
@@ -16,22 +16,22 @@ def bisection_search2(list, e):
     the half elements of the list, which is O(n), in every recursive call 
     '''
     
-    def bisection_search_helper(list, e, low, high):
+    def bisection_search_helper(list, x, low, high):
         if low == high:
-            return list[low] == e
+            return list[low] == x
         mid = (low + high) // 2 #flooring
-        if list[mid] == e:
+        if list[mid] == x:
             return True
-        if list[mid] > e:
+        if list[mid] > x:
             if list[low] == list[mid]:
                 return False #no elements left
-            return bisection_search_helper(list, e, low, mid - 1)
+            return bisection_search_helper(list, x, low, mid - 1)
         else:
-            return bisection_search_helper(list, e, mid + 1, high)
+            return bisection_search_helper(list, x, mid + 1, high)
     
     if len(list) == 0:
         return False
-    return bisection_search_helper(list, e, 0, len(list) - 1)
+    return bisection_search_helper(list, x, 0, len(list) - 1)
 
 
 #Test

@@ -7,7 +7,7 @@ def selection_sort(list):
          3.2 All other elements are bigger
     Time Complexity: n - 1 comparisons in each of n passes, that is O(n^2), quadratic 
     
-    NOTE: Unlike bubble_sort, even if the list is sorted some number of passes, 
+    NOTE: Unlike bubble_sort, even if the list is sorted after some number of passes, 
     the selection_sort goes through all passes which is n.
     '''
     suffix_start = 0
